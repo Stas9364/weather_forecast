@@ -40,7 +40,8 @@ export const AutoComplete: React.FC<AutoCompleteType> = ({ suggestions, getSelec
             setInput(filteredSuggestions[activeSuggestionIndex]);
             setActiveSuggestionIndex(0);
             setShowSuggestions(false);
-
+            getSelectedValue(input);
+            setInput('');
         }
         // User pressed the up arrow
         else if (e.code === 'ArrowUp') {
@@ -85,7 +86,7 @@ export const AutoComplete: React.FC<AutoCompleteType> = ({ suggestions, getSelec
         <span role="img" aria-label="tear emoji">
           😪
         </span>{' '}
-                    <em>sorry no suggestions</em>
+                    <em>sorry no suggestions, but you can keep writing your request</em>
                 </div>
             );
     };
