@@ -14,6 +14,9 @@ export const CurrentWeather = React.memo(() => {
     };
     console.log('hi')
     console.log('hi')
+    console.log('hi')
+    console.log('hi')
+    console.log('hi')
     return (
         <div>
 
