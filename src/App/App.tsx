@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import {CurrentWeather} from '../components/CurrentWeather';
+import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
 import {useAppDispatch} from './app/hooks';
 import {getFiveDaysForecastTC} from '../bll/reducers/fiveDaysForecastReducer';
@@ -19,7 +19,6 @@ function App() {
         });
     }, [dispatch]);
 
-    console.log('!@#$%')
 
     return (
         <div className="App">

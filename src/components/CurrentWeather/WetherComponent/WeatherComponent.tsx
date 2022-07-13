@@ -1,5 +1,5 @@
-import {ResponseCurrentWeatherType} from '../../api/apiReaquests';
-import {setPic} from '../../utils/setWeatherPicture';
+import {ResponseCurrentWeatherType} from '../../../api/apiReaquests';
+import {setPic} from '../../../utils/setWeatherPicture';
 import React from 'react';
 
 export type WeatherComponentType = {

@@ -1,8 +1,8 @@
 import React from 'react';
-import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
-import {useAppDispatch, useAppSelector} from '../App/app/hooks';
-import {AutoComplete} from './AutoComplete/AutoComplete';
-import {capitals} from '../utils/Capitals';
+import {getCurrentWeatherTC} from '../../bll/reducers/currentWeatherReducer';
+import {useAppDispatch, useAppSelector} from '../../App/app/hooks';
+import {AutoComplete} from '../AutoComplete/AutoComplete';
+import {capitals} from '../../utils/Capitals';
 import {WeatherComponent} from './WetherComponent/WeatherComponent';
 
 export const CurrentWeather = React.memo(() => {
@@ -12,7 +12,6 @@ export const CurrentWeather = React.memo(() => {
     const setDispatchData = (val: string) => {
         dispatch(getCurrentWeatherTC(val));
     };
-    console.log('drist')
     return (
         <div>
 

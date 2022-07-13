@@ -92,7 +92,7 @@ export const instance = axios.create({
 
 
 export const currentWeatherAPI = {
-    getCurrentData(location?: string | null, lat?: any, lon?: any) {
+    getCurrentData(location?: string | null, lat?: string, lon?: string) {
         return instance.get<ResponseCurrentWeatherType>('weather',
             {
                 params: {
