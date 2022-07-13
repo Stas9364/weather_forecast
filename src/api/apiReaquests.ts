@@ -44,6 +44,43 @@ export type ResponseCurrentWeatherType = {
     'cod': number
 }
 
+export type ResponseFiveDaysForecast = {
+        list: Array<ResponseType>
+}
+type ResponseType = {
+    clouds: { all: number }
+    dt: number
+    dt_txt: string
+    main: {
+        feels_like: number
+        grnd_level: number
+        humidity: number
+        pressure: number
+        sea_level: number
+        temp: number
+        temp_kf: number
+        temp_max: number
+        temp_min: number
+    }
+    pop: number
+    rain: { '3h': number }
+    sys: { pod: string }
+    visibility: number
+    weather: [
+        {
+            id: number
+            main: string
+            description: string
+            icon: string
+        }
+    ]
+    wind: {
+        speed: number,
+        deg: number
+        gust: number
+    }
+}
+
 export const instance = axios.create({
     method: 'GET',
     baseURL: 'https://community-open-weather-map.p.rapidapi.com/',
@@ -57,10 +94,20 @@ export const instance = axios.create({
 export const currentWeatherAPI = {
     getCurrentData(location?: string | null, lat?: any, lon?: any) {
         return instance.get<ResponseCurrentWeatherType>('weather',
-            {params: {
+            {
+                params: {
                     q: location,
                     lat: lat,
                     lon: lon,
+                    units: 'metric'
+                }
+            });
+    },
+    getFiveDaysForecast(location: string) {
+        return instance.get<ResponseFiveDaysForecast>('forecast',
+            {
+                params: {
+                    q: location,
                     units: 'metric'
                 }
             });

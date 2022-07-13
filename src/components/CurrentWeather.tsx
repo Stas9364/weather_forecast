@@ -8,7 +8,6 @@ import {WeatherComponent} from './WetherComponent/WeatherComponent';
 export const CurrentWeather = React.memo(() => {
     const dispatch = useAppDispatch();
     const data = useAppSelector(state => state.currentWeather.data);
-    console.log(data);
 
     const setDispatchData = (val: string) => {
         dispatch(getCurrentWeatherTC(val));
