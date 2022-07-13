@@ -13,6 +13,8 @@ export const CurrentWeather = React.memo(() => {
         dispatch(getCurrentWeatherTC(val));
     };
 
+    console.log('bad commit')
+
     return (
         <div>
 
