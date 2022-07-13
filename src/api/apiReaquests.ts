@@ -45,7 +45,7 @@ export type ResponseCurrentWeatherType = {
 }
 
 export type ResponseFiveDaysForecast = {
-        list: Array<ResponseType>
+    list: Array<ResponseType>
 }
 type ResponseType = {
     clouds: { all: number }
