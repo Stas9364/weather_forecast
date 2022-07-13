@@ -4,7 +4,7 @@ import {CurrentWeather} from '../components/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
 import {useAppDispatch} from './app/hooks';
 import {getFiveDaysForecastTC} from '../bll/reducers/fiveDaysForecastReducer';
-import {FiveDaysForecast} from "../components/FiveDaysForecast/FiveDaysForecast";
+import {FiveDaysForecast} from '../components/FiveDaysForecast/FiveDaysForecast';
 
 function App() {
     const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ function App() {
             const lat = latitude.toString();
             const lon = longitude.toString();
             dispatch(getCurrentWeatherTC(null, lat, lon));
-            dispatch(getFiveDaysForecastTC());
+            // dispatch(getFiveDaysForecastTC());
         });
     }, [dispatch]);
 
