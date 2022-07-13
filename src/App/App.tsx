@@ -19,7 +19,7 @@ function App() {
         });
     }, [dispatch]);
 
-
+    console.log('!@#$%')
 
     return (
         <div className="App">
