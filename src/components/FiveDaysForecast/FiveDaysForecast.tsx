@@ -9,7 +9,7 @@ export const FiveDaysForecast = () => {
     // const forecastList = forecast.map((el, index) => <li key={index}>{el.main.temp}</li>);
 
     return (
-        <div>
+        <div >
             {/*<div>Temp: {forecastList}</div>*/}
         </div>
     );

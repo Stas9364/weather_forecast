@@ -2,50 +2,50 @@ import axios from 'axios';
 
 export type ResponseCurrentWeatherType = {
     'coord': {
-        'lon': number,
+        'lon': number
         'lat': number
     },
     'weather': [
         {
-            'id': number,
-            'main': string,
-            'description': string,
+            'id': number
+            'main': string
+            'description': string
             'icon': string
         }
     ],
-    'base': string,
+    'base': string
     'main': {
-        'temp': number,
-        'feels_like': number,
-        'temp_min': number,
-        'temp_max': number,
-        'pressure': number,
+        'temp': number
+        'feels_like': number
+        'temp_min': number
+        'temp_max': number
+        'pressure': number
         'humidity': number
     },
-    'visibility': number,
+    'visibility': number
     'wind': {
-        'speed': number,
+        'speed': number
         'deg': number
     },
     'clouds': {
         'all': number
     },
-    'dt': number,
+    'dt': number
     'sys': {
-        'type': number,
-        'id': number,
-        'country': string,
-        'sunrise': number,
+        'type': number
+        'id': number
+        'country': string
+        'sunrise': number
         'sunset': number
     },
-    'timezone': number,
-    'id': number,
-    'name': string,
+    'timezone': number
+    'id': number
+    'name': string
     'cod': number
 }
 
 export type ResponseFiveDaysForecast = {
-        list: Array<ResponseType>
+    list: Array<ResponseType>
 }
 type ResponseType = {
     clouds: { all: number }
@@ -75,12 +75,38 @@ type ResponseType = {
         }
     ]
     wind: {
-        speed: number,
+        speed: number
         deg: number
         gust: number
     }
 }
-
+type ListForThirtyType = {
+    "dt": number
+    "humidity": number
+    "pressure": number
+    "temp": {
+        "average": number
+        "average_max": number
+        "average_min": number
+        "record_max": number
+        "record_min": number
+    }
+    "wind_speed": number
+}
+export type ResponseThirtyDaysForecast = {
+    "cod": string
+    "city": {
+        "id": number
+        "name": string
+        "coord": {
+            "lon": number
+            "lat": number
+        }
+        "country": string
+    }
+    "message": number
+    "list": Array<ListForThirtyType>
+}
 export const instance = axios.create({
     method: 'GET',
     baseURL: 'https://community-open-weather-map.p.rapidapi.com/',
@@ -111,5 +137,13 @@ export const currentWeatherAPI = {
                     units: 'metric'
                 }
             });
-    }
+    },
+    getThirtyDaysForecast(location: string) {
+        return instance.get<ResponseThirtyDaysForecast>('climate/month',
+            {
+                params: {
+                    q: location,
+                }
+            });
+    },
 };
