@@ -14,6 +14,7 @@ export const CurrentWeather = React.memo(() => {
     };
 
     console.log('bad commit')
+    console.log('good commit')
 
     return (
         <div>
