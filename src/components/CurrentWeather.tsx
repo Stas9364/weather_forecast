@@ -12,11 +12,7 @@ export const CurrentWeather = React.memo(() => {
     const setDispatchData = (val: string) => {
         dispatch(getCurrentWeatherTC(val));
     };
-    console.log('hi')
-    console.log('hi')
-    console.log('hi')
-    console.log('hi')
-    console.log('hi')
+
     return (
         <div>
 
