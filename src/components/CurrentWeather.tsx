@@ -13,7 +13,6 @@ export const CurrentWeather = React.memo(() => {
         dispatch(getCurrentWeatherTC(val));
     };
     console.log('hi')
-
     console.log('hi')
     return (
         <div>
