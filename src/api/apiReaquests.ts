@@ -77,7 +77,7 @@ type HoursResponseType = {
     }
 }
 
-
+////////AXIOS
 export const instance = axios.create({
     method: 'GET',
     baseURL: 'https://api.weatherapi.com/v1/',
