@@ -1,4 +1,4 @@
-import {ResponseThirtyDaysForecast} from "../../api/apiReaquests";
+import {ResponseThirtyDaysForecast} from '../../api/apiReaquests';
 
 export enum THIRTY_DAYS_FORECAST {
     GET_FORECAST = 'GET_FORECAST'

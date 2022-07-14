@@ -4,7 +4,7 @@ import {
     getThirtyDaysForecastAC,
     THIRTY_DAYS_FORECAST,
     ThirtyDaysForecastAction
-} from "../actions/ThirtyDaysForecastAction";
+} from '../actions/ThirtyDaysForecastAction';
 
 export type InitStateType = typeof initState;
 

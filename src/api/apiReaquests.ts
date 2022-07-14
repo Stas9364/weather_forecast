@@ -81,31 +81,31 @@ type ResponseType = {
     }
 }
 type ListForThirtyType = {
-    "dt": number
-    "humidity": number
-    "pressure": number
-    "temp": {
-        "average": number
-        "average_max": number
-        "average_min": number
-        "record_max": number
-        "record_min": number
+    dt: number
+    humidity: number
+    pressure: number
+    temp: {
+        average: number
+        average_max: number
+        average_min: number
+        record_max: number
+        record_min: number
     }
-    "wind_speed": number
+    wind_speed: number
 }
 export type ResponseThirtyDaysForecast = {
-    "cod": string
-    "city": {
-        "id": number
-        "name": string
-        "coord": {
-            "lon": number
-            "lat": number
+    cod: string
+    city: {
+        id: number
+        name: string
+        coord: {
+            lon: number
+            lat: number
         }
-        "country": string
+        country: string
     }
-    "message": number
-    "list": Array<ListForThirtyType>
+    message: number
+    list: Array<ListForThirtyType>
 }
 export const instance = axios.create({
     method: 'GET',

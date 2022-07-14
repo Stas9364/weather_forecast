@@ -4,8 +4,6 @@ import {useAppSelector} from '../../App/app/hooks';
 export const FiveDaysForecast = () => {
     const forecast = useAppSelector(state => state.fiveDaysForecast.list);
 
-
-
     const forecastList = forecast.map((el, index) =>
         <div key={index} style={{border: '1px solid'}}>
             <div>Date: {el.dt_txt}</div>
