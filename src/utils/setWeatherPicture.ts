@@ -6,14 +6,5 @@ import Rain from '../assets/raining.gif';
 
 
 export const setPic = (data: ResponseCurrentWeatherType) => {
-    switch (data.weather[0].main) {
-        case 'Clouds':
-            return Clouds;
-        case 'Clear':
-            return Sunny;
-        case 'Rain':
-            return Rain;
-        default:
-            return '';
-    }
+
 };
