@@ -1,0 +1,19 @@
+.NavBar{
+    padding: 3%;
+    background-color: darkturquoise;
+    display: flex;
+    justify-content: space-between;
+}
+.NavBar div{
+    width: 20%;
+}
+.NavBar div a{
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: black;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
