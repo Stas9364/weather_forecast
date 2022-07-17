@@ -3,6 +3,9 @@ import './App.css';
 import {useAppDispatch} from './app/hooks';
 import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
+import {getHourlyForecastTC} from "../bll/reducers/HourlyForecastReducer";
+import {HourlyForecast} from "../components/Forecast/Hourly/HourlyForecast";
+import {HourContainer} from "../components/Forecast/HourContainer";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -13,7 +16,7 @@ function App() {
             const lat = latitude.toString();
             const lon = longitude.toString();
             // dispatch(getCurrentWeatherTC('minsk'));
-
+dispatch(getHourlyForecastTC(`${lat} ${lon}`))
         });
     }, [dispatch]);
 
@@ -21,6 +24,7 @@ function App() {
     return (
         <div className="App">
             <CurrentWeather />
+            <HourContainer/>
         </div>
     );
 }

@@ -48,30 +48,31 @@ export type HoursDataType = {
     'will_it_snow': number
     'chance_of_snow': number
 }
+export type ForecastDayType =[
+    {
+        date: string
+        'date_epoch': number
+        day: {
+            'maxtemp_c': number
+            'mintemp_c': number
+            'avgtemp_c': number
+            condition: {
+                text: string
+                icon: string
+            }
+        },
+        astro: {
+            sunrise: string
+            sunset: string
+        },
+        hour: Array<HoursDataType>
+    }
+]
 export type HoursResponseType = {
     location: LocationResponseType
     current: CurrentWeatherResponseType
     forecast: {
-        forecastday: [
-            {
-                date: string
-                'date_epoch': number
-                day: {
-                    'maxtemp_c': number
-                    'mintemp_c': number
-                    'avgtemp_c': number
-                    condition: {
-                        text: string
-                        icon: string
-                    }
-                },
-                astro: {
-                    sunrise: string
-                    sunset: string
-                },
-                hour: Array<HoursDataType>
-            }
-        ]
+        forecastday: ForecastDayType
     }
 }
 
@@ -92,24 +93,8 @@ export const currentWeatherAPI = {
                 }
             });
     },
-//     getFiveDaysForecast(location: string) {
-//         return instance.get<ResponseFiveDaysForecast>('forecast',
-//             {
-//                 params: {
-//                     key: '734c7d69f1f44bdba87150403221407',
-//                     q: location,
-//                 }
-//             });
-//     },
-//     getThirtyDaysForecast(location: string) {
-//         return instance.get<ResponseThirtyDaysForecast>('climate/month',
-//             {
-//                 params: {
-//                     key: '734c7d69f1f44bdba87150403221407',
-//                     q: location,
-//                 }
-//             });
-//     },
+
+
 };
 
 
