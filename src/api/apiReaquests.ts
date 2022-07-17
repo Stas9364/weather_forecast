@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /////////////CURRENT WEATHER TYPING
-type LocationResponseType = {
+export type LocationResponseType = {
     name: string
     region: string
     country: string
@@ -11,11 +11,12 @@ type LocationResponseType = {
     'localtime_epoch': number
     localtime: string
 }
-type CurrentWeatherResponseType = {
+export type CurrentWeatherResponseType = {
     'last_updated_epoch': number
     'last_updated': string
     'temp_c': number
-    'is_day': number
+    'feelslike_c': number,
+    uv: number
     'condition': {
         text: string
         icon: string
@@ -24,8 +25,6 @@ type CurrentWeatherResponseType = {
 export type ResponseCurrentWeatherType = {
     location: LocationResponseType
     current: CurrentWeatherResponseType,
-    'feelslike_c': number,
-    uv: number
 }
 
 /////////////////HOURS WEATHER TYPING

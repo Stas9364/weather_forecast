@@ -4,7 +4,7 @@ import {AppThunk} from '../weatherAppStore';
 
 export type InitStateType = typeof initState;
 
-export const initState = {};
+export const initState = {} as ResponseCurrentWeatherType;
 
 export const currentWeatherReducer = (state: InitStateType = initState, action: CurrentWeatherAction): InitStateType => {
     switch (action.type) {
@@ -23,7 +23,7 @@ export const currentWeatherReducer = (state: InitStateType = initState, action: 
 export const getCurrentWeatherTC = (location: string): AppThunk => (dispatch) => {
     currentWeatherAPI.getCurrentData(location)
         .then(resp => {
-            console.log(resp)
-            // dispatch(getCurrentWeatherAC(resp.data));
+            console.log(resp.data)
+            dispatch(getCurrentWeatherAC(resp.data));
         });
 };

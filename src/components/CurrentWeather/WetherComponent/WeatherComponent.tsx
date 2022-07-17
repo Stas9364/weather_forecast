@@ -1,9 +1,8 @@
 import React from 'react';
+import {ResponseCurrentWeatherType} from '../../../api/apiReaquests';
 
-export type WeatherComponentType = {}
-
-export const WeatherComponent = (data: any) => {
-
+export const WeatherComponent = (data: ResponseCurrentWeatherType) => {
+    console.log(data)
     return (
         <>
             CURRENT WEATHER

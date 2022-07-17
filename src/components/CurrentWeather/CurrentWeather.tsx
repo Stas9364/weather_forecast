@@ -7,11 +7,12 @@ import {WeatherComponent} from './WetherComponent/WeatherComponent';
 
 export const CurrentWeather = React.memo(() => {
     const dispatch = useAppDispatch();
-    const data = useAppSelector(state => state);
+    const data = useAppSelector(state => state.currentWeather);
 
     const setDispatchData = (val: string) => {
         dispatch(getCurrentWeatherTC(val));
     };
+
     return (
         <div>
 
@@ -21,7 +22,7 @@ export const CurrentWeather = React.memo(() => {
             />
 
             {Object.keys(data).length !== 0
-                ? <WeatherComponent data={''}/>
+                ? <WeatherComponent location={data.location} current={data.current}/>
                 : 'Choose a city'
             }
 
