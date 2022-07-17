@@ -7,8 +7,7 @@ export const HourContainer = () => {
 
     return (
         <div style={{ display:'flex'}}>
-                HOURLY FORECAST:{
-                hourWeather && hourWeather.map((item, id) => <div key={id}>
+                {hourWeather && hourWeather.map((item, id) => <div key={id}>
           <HourlyForecast item={item}/>
                 </div>)
             }

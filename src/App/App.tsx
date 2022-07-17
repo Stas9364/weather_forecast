@@ -15,8 +15,8 @@ function App() {
             const {latitude, longitude} = position.coords;
             const lat = latitude.toString();
             const lon = longitude.toString();
-            // dispatch(getCurrentWeatherTC('minsk'));
-dispatch(getHourlyForecastTC(`${lat} ${lon}`))
+            dispatch(getCurrentWeatherTC('minsk'));
+            dispatch(getHourlyForecastTC(`${lat} ${lon}`))
         });
     }, [dispatch]);
 

@@ -1,0 +1,23 @@
+.container {
+    width: 250px;
+    background-color: lightgray;
+}
+
+.name {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.temp {
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.feelsLike {
+    font-weight: 600;
+}
