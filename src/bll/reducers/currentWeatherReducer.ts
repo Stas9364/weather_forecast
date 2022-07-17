@@ -23,7 +23,6 @@ export const currentWeatherReducer = (state: InitStateType = initState, action: 
 export const getCurrentWeatherTC = (location: string): AppThunk => (dispatch) => {
     currentWeatherAPI.getCurrentData(location)
         .then(resp => {
-            console.log(resp.data)
             dispatch(getCurrentWeatherAC(resp.data));
         });
 };
