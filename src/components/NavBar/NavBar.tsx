@@ -5,7 +5,7 @@ import c from './navBar.module.css'
 export const NavBar = () => {
     return (
         <div className={c.NavBar}>
-            <div>
+            <div className={c.link}>
                 <NavLink to={'/now'}>Now</NavLink>
                 <NavLink to={'/hourly'}>Hourly</NavLink>
                 <NavLink to={'/forWeek'}>7 Days</NavLink>
