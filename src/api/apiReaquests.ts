@@ -33,7 +33,7 @@ export type ResponseCurrentWeatherType = {
 }
 
 /////////////////HOURS WEATHER TYPING
-type HoursDataType = {
+export type HoursDataType = {
     'time_epoch': number
     time: string
     'temp_c': number
@@ -48,7 +48,7 @@ type HoursDataType = {
     'will_it_snow': number
     'chance_of_snow': number
 }
-type HoursResponseType = {
+export type HoursResponseType = {
     location: LocationResponseType
     current: CurrentWeatherResponseType
     forecast: {
