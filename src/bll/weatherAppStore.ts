@@ -4,16 +4,18 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {currentWeatherReducer} from './reducers/currentWeatherReducer';
 import {CurrentWeatherAction} from './actions/currentWeatherAction';
 import {FiveDaysForecastAction} from './actions/fiveDaysForecastAction';
-import {ThirtyDaysForecastAction} from "./actions/ThirtyDaysForecastAction";
+import {HourlyForecastAction} from "./actions/HourlyForecastAction";
+import {hourlyForecastReducer} from "./reducers/HourlyForecastReducer";
 
 export type AppStateType = ReturnType<typeof rootReducer>
 export type AppDispatch = ThunkDispatch<AppStateType, unknown, AppActionsType>;
-export type AppActionsType = CurrentWeatherAction | FiveDaysForecastAction |ThirtyDaysForecastAction;
+export type AppActionsType = CurrentWeatherAction | FiveDaysForecastAction |HourlyForecastAction;
 export type AppThunk <ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, AppActionsType>
 
 
 const rootReducer = combineReducers({
     currentWeather: currentWeatherReducer,
+    hourlyWeather:hourlyForecastReducer,
 });
 
 export const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
