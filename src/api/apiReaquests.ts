@@ -15,8 +15,13 @@ export type CurrentWeatherResponseType = {
     'last_updated_epoch': number
     'last_updated': string
     'temp_c': number
-    'feelslike_c': number,
+    'feelslike_c': number
     uv: number
+    'wind_kph': number
+    'wind_dir': string
+    'pressure_mb': number
+    'humidity': number
+    'cloud': number
     'condition': {
         text: string
         icon: string
@@ -38,20 +43,14 @@ type HoursDataType = {
     },
     cloud: number
     'feelslike_c': number
+    'will_it_rain': number
+    'chance_of_rain': number
+    'will_it_snow': number
+    'chance_of_snow': number
 }
 type HoursResponseType = {
-    location: LocationResponseType,
-    current: {
-        'last_updated_epoch': number
-        'last_updated': string
-        'temp_c': number
-        condition: {
-            text: string
-            icon: string
-        },
-        'feelslike_c': number
-        uv: number
-    },
+    location: LocationResponseType
+    current: CurrentWeatherResponseType
     forecast: {
         forecastday: [
             {
