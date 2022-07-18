@@ -4,10 +4,11 @@ import {useAppDispatch} from './app/hooks';
 import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
 import {getHourlyForecastTC} from "../bll/reducers/HourlyForecastReducer";
-import {HourlyForecast} from "../components/Forecast/Hourly/HourlyForecast";
+
 import {HourContainer} from "../components/Forecast/HourContainer";
 import {NavBar} from "../components/NavBar/NavBar";
 import {Route, Routes} from "react-router-dom";
+import {DecorationLine} from "../components/NavBar/DecorationLine";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -25,6 +26,7 @@ function App() {
 
     return (
         <div className={c.App}>
+            <DecorationLine/>
             <NavBar/>
             <Routes>
                 <Route path={'/now'} element={<CurrentWeather/>}/>

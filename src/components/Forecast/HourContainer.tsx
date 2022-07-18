@@ -22,10 +22,7 @@ export const HourContainer = () => {
                 slidesPerView={5}
                 spaceBetween={10}
                 mousewheel={true}
-                pagination={{type: 'progressbar'}}
-                // pagination={{
-                //     clickable: true,
-                // }}
+                pagination={{type: 'custom'}}
                 modules={[Mousewheel, Pagination,Navigation,]}
                 className="mySwiper"
             > {hourWeather && hourWeather.map((item, id) => <SwiperSlide key={id}>
