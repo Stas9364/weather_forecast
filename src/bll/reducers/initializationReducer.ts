@@ -1,14 +1,16 @@
-import {INITIALIZATION_TYPE, InitializationAction} from '../actions/InitializationAction';
+import {INITIALIZATION_TYPE, InitializationAction} from '../actions/initializationAction';
 
 export type InitStateType = {
     isLoading: IsLoadingType
     error: null | string
+    selectedCity: string | null
 }
 export type IsLoadingType = 'idle' | 'loading' | 'success';
 
 export const initState: InitStateType = {
     isLoading: 'idle',
-    error: null
+    error: null,
+    selectedCity: null
 };
 
 export const initializationReducer = (state: InitStateType = initState, action: InitializationAction): InitStateType => {
@@ -18,6 +20,8 @@ export const initializationReducer = (state: InitStateType = initState, action: 
         case INITIALIZATION_TYPE.ERROR: {
             return {...state, error: action.error};
         }
+        case INITIALIZATION_TYPE.SELECTED_CITY:
+            return {...state, selectedCity: action.value};
         default:
             return state;
     }

@@ -93,8 +93,16 @@ export const currentWeatherAPI = {
                 }
             });
     },
-
-
+    getDailyData(location: string) {
+        return instance.get('forecast.json',
+            {
+                params: {
+                    key: '734c7d69f1f44bdba87150403221407',
+                    q: location,
+                    days: 7
+                }
+            })
+    }
 };
 
 

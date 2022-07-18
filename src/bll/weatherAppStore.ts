@@ -6,7 +6,7 @@ import {CurrentWeatherAction} from './actions/currentWeatherAction';
 import {FiveDaysForecastAction} from './actions/fiveDaysForecastAction';
 import {HourlyForecastAction} from './actions/HourlyForecastAction';
 import {hourlyForecastReducer} from './reducers/HourlyForecastReducer';
-import {InitializationAction} from './actions/InitializationAction';
+import {InitializationAction} from './actions/initializationAction';
 import {initializationReducer} from './reducers/initializationReducer';
 
 export type AppStateType = ReturnType<typeof rootReducer>
