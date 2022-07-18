@@ -53,6 +53,10 @@ export type ForecastDayType =[
         date: string
         'date_epoch': number
         day: {
+            daily_chance_of_rain: number
+            daily_chance_of_snow: number
+            daily_will_it_rain: number
+            daily_will_it_snow: number
             'maxtemp_c': number
             'mintemp_c': number
             'avgtemp_c': number
@@ -79,7 +83,7 @@ export type DailyResponseType = {
     location: LocationResponseType
     current: CurrentWeatherResponseType
     forecast: {
-        forecastday: Array<ForecastDayType>
+        forecastday: ForecastDayType
     }
 }
 
