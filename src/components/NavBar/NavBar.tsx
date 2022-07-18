@@ -9,9 +9,12 @@ export const NavBar = () => {
             <div className={c.link}>
                 <NavLink to={'/'}>Now</NavLink>
                 <NavLink to={'/hourly'}>Hourly</NavLink>
-                <NavLink to={'/forWeek'}>7 Days</NavLink>
+                <NavLink to={'/threeDays'}>3 Days</NavLink>
             </div>
-<div><input type="text"/></div>
+            <div>
+                <input type="text"/>
+            </div>
+
         </div>
     );
 };

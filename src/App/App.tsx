@@ -34,8 +34,9 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<CurrentWeather/>}/>
                 <Route path={'/hourly'} element={<HourContainer/>}/>
+                <Route path={'/threeDays'} element={<DailyForecastContainer/>}/>
             </Routes>
-            <DailyForecastContainer/>
+
         </div>
     );
 }
