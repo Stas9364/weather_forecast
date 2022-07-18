@@ -3,14 +3,11 @@ import c from './App.module.css';
 import {useAppDispatch} from './app/hooks';
 import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
-import {getHourlyForecastTC} from '../bll/reducers/HourlyForecastReducer';
-
-import {HourContainer} from '../components/Forecast/HourContainer';
 import {NavBar} from '../components/NavBar/NavBar';
 import {Route, Routes} from 'react-router-dom';
 import {DecorationLine} from '../components/NavBar/DecorationLine';
-import {getDailyForecastTC} from '../bll/reducers/dailyForecastReducer';
 import {DailyForecastContainer} from '../components/DailyForecast/DailyForecastContainer';
+import {HourlyForecastContainer} from '../components/Forecast/HourlyForecastContainer';
 
 function App() {
     const dispatch = useAppDispatch();
@@ -20,9 +17,7 @@ function App() {
             const {latitude, longitude} = position.coords;
             const lat = latitude.toString();
             const lon = longitude.toString();
-            dispatch(getCurrentWeatherTC('minsk'));
-            dispatch(getHourlyForecastTC(`${lat} ${lon}`));
-            dispatch(getDailyForecastTC('london'));
+            dispatch(getCurrentWeatherTC(`${lat} ${lon}`));
         });
     }, [dispatch]);
 
@@ -33,7 +28,7 @@ function App() {
             <NavBar/>
             <Routes>
                 <Route path={'/'} element={<CurrentWeather/>}/>
-                <Route path={'/hourly'} element={<HourContainer/>}/>
+                <Route path={'/hourly'} element={<HourlyForecastContainer/>}/>
                 <Route path={'/threeDays'} element={<DailyForecastContainer/>}/>
             </Routes>
 

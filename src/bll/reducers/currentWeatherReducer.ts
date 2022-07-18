@@ -1,7 +1,7 @@
 import {CURRENT_WEATHER_TYPE, CurrentWeatherAction, getCurrentWeatherAC} from '../actions/currentWeatherAction';
-import {currentWeatherAPI, ResponseCurrentWeatherType} from '../../api/apiReaquests';
+import {forecastAPI, ResponseCurrentWeatherType} from '../../api/apiReaquests';
 import {AppThunk} from '../weatherAppStore';
-import {errorAC, selectedValueAC} from '../actions/initializationAction';
+import {errorAC, selectedLocationAC} from '../actions/initializationAction';
 
 export type InitStateType = typeof initState;
 
@@ -22,10 +22,11 @@ export const currentWeatherReducer = (state: InitStateType = initState, action: 
 /////THUNK
 
 export const getCurrentWeatherTC = (location: string): AppThunk => (dispatch) => {
-    currentWeatherAPI.getCurrentData(location)
+    dispatch(selectedLocationAC(location));
+
+    forecastAPI.getCurrentData(location)
         .then(resp => {
             dispatch(getCurrentWeatherAC(resp.data));
-            dispatch(selectedValueAC(location));
         })
         .catch(e => {
             console.log(e.response.data.error.message)

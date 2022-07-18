@@ -1,6 +1,6 @@
 import React from 'react';
-import {HoursDataType} from "../../../api/apiReaquests";
-import c from './hourlyForecast.module.css'
+import {HoursDataType} from '../../../api/apiReaquests';
+import c from './hourlyForecast.module.css';
 
 type ItemType = {
     item: HoursDataType

@@ -7,7 +7,7 @@ export const WeatherComponent = (data: ResponseCurrentWeatherType) => {
         <div className={styles.container}>
             <div className={styles.name}>{data.location.name}</div>
             <div className={styles.picture}><img src={data.current.condition.icon} alt="showing pic"/></div>
-            <div className={styles.temp}>{data.current.temp_c} C&deg;</div>
+            <div className={styles.temp}>{data.current.temp_c} &deg;C</div>
             <div className={styles.description}>{data.current.condition.text}</div>
             <div className={styles.feelsLike}>Feels like: {data.current.feelslike_c} &deg;C</div>
             <div className={styles.windSpeed}>Wind speed: {data.current.wind_kph} km/h</div>

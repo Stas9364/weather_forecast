@@ -1,4 +1,4 @@
-import {currentWeatherAPI, DailyResponseType} from '../../api/apiReaquests';
+import {forecastAPI, DailyResponseType} from '../../api/apiReaquests';
 import {DAILY_FORECAST_TYPE, DailyForecastAction, getDailyForecastAC} from '../actions/dailyForecastAction';
 import {AppThunk} from '../weatherAppStore';
 import {errorAC} from '../actions/initializationAction';
@@ -18,13 +18,13 @@ export const dailyForecastReducer = (state: initStateType = initState, action: D
 
 //////THUNK
 
-export const getDailyForecastTC = (location: string): AppThunk => (dispatch) => {
-    currentWeatherAPI.getDailyData(location)
+export const getDailyForecastTC = (location: string | null): AppThunk => (dispatch) => {
+
+    forecastAPI.getDailyData(location)
         .then(resp => {
             dispatch(getDailyForecastAC(resp.data));
         })
         .catch(e => {
-            console.log(e.response.data.error.message);
             dispatch(errorAC(e.response.data.error.message));
         });
 };

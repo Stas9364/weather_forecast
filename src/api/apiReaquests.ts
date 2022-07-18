@@ -96,7 +96,7 @@ export const instance = axios.create({
 });
 
 
-export const currentWeatherAPI = {
+export const forecastAPI = {
     getCurrentData(location: string) {
         return instance.get<ResponseCurrentWeatherType>('current.json',
             {
@@ -106,7 +106,17 @@ export const currentWeatherAPI = {
                 }
             });
     },
-    getDailyData(location: string) {
+    getHourlyData(location: string | null) {
+        return instance.get< HoursResponseType>('forecast.json',
+            {
+                params: {
+                    key: 'fd690f2bb40d448eb38184415221407',
+                    q: location,
+                    days:1
+                }
+            });
+    },
+    getDailyData(location: string | null) {
         return instance.get<DailyResponseType>('forecast.json',
             {
                 params: {

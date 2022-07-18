@@ -1,10 +1,19 @@
-import React from 'react';
-import {useAppSelector} from '../../App/app/hooks';
+import React, {useEffect} from 'react';
+import {useAppDispatch, useAppSelector} from '../../App/app/hooks';
 import {DailyForecastComponent} from './DailyForecastComponent/DailyForecastComponent';
 import c from '../DailyForecast/DailyForecastContainer.module.css';
+import {getDailyForecastTC} from '../../bll/reducers/dailyForecastReducer';
 
 export const DailyForecastContainer = () => {
+    const dispatch = useAppDispatch();
+
     const data = useAppSelector(state => state.dailyWeather.forecast);
+    const location = useAppSelector(state => state.initialization.selectedLocation);
+
+    useEffect(() => {
+        dispatch(getDailyForecastTC(location));
+    }, [location]);
+
 
     return (
         <div className={c.container}>
