@@ -4,13 +4,15 @@ import {getHourlyForecastAC, HOURLY_DAYS_FORECAST, HourlyForecastAction} from '.
 
 export type InitStateType = typeof initStateHour;
 
-export const initStateHour = [] as Array<HoursDataType>;
+export const initStateHour = {
+    data: [] as Array<HoursDataType>
+};
 
 
 export const hourlyForecastReducer = (state: InitStateType = initStateHour, action: HourlyForecastAction): InitStateType => {
     switch (action.type) {
         case HOURLY_DAYS_FORECAST.GET_FORECAST:
-            return [...state, ...action.weatherData];
+            return {...state, data: [...action.weatherData]};
         default:
             return state;
     }

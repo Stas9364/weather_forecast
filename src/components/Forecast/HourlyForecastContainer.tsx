@@ -34,7 +34,7 @@ export const HourlyForecastContainer = () => {
                 pagination={{type: 'custom'}}
                 modules={[Mousewheel, Pagination,Navigation,]}
                 className="mySwiper"
-            > {hourWeather && hourWeather.map((item, id) => <SwiperSlide key={id}>
+            > {hourWeather && hourWeather.data.map((item, id) => <SwiperSlide key={id}>
                 <HourlyForecast item={item} /></SwiperSlide>)}
             </Swiper>
         </div>
