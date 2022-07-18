@@ -5,7 +5,7 @@
 }
 .container div{
     text-align: center;
-    font-size: 20px;
+    /*font-size: 20px;*/
     padding-bottom: 5px;
     padding-top: 5px;
 }
@@ -13,18 +13,28 @@
     background-color: lightgoldenrodyellow;
     border-bottom: 1px solid gainsboro;
 }
-.temperature{
-    border-bottom: 1px solid gainsboro;
+.temperature {
+font-size: 40px;
+    align-self: center;
+    font-weight: bolder;
 }
 .icon{
+    display: flex;
+    justify-content: space-around;
     background-color: lightgoldenrodyellow;
-}
-.chanceOfSnow{
     border-bottom: 1px solid gainsboro;
 }
+.feels{
+    background-color: #e6bc53;
+    border-top: 1px solid #bd972e;
+    border-bottom: 1px solid #bd972e;
+}
+.chanceOfSnow{
+    border-top: 1px solid #bd972e;
+}
 .cloud{
-    background-color: lightgoldenrodyellow;
+    background-color: #e6bc53;
 }
 .chanceOfRain{
-    border-top: 1px solid gainsboro;
+    border-top: 1px solid #bd972e;
 }

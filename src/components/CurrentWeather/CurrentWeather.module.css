@@ -1,8 +1,12 @@
 .container {
-    width: 250px;
-    background-color: lightgray;
+    background-size: 100%;
+    background-image:url("../../assets/zemlya_iz_kosmosa-1920x1152.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
 }
-
+.container div{
+    color:wheat;
+}
 .name {
     font-size: 35px;
     font-weight: bold;
