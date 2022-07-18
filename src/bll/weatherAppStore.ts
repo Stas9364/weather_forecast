@@ -8,6 +8,8 @@ import {HourlyForecastAction} from './actions/HourlyForecastAction';
 import {hourlyForecastReducer} from './reducers/HourlyForecastReducer';
 import {InitializationAction} from './actions/initializationAction';
 import {initializationReducer} from './reducers/initializationReducer';
+import {dailyForecastReducer} from './reducers/dailyForecastReducer';
+import {DailyForecastAction} from './actions/dailyForecastAction';
 
 export type AppStateType = ReturnType<typeof rootReducer>
 export type AppDispatch = ThunkDispatch<AppStateType, unknown, AppActionsType>;
@@ -15,14 +17,16 @@ export type AppActionsType =
     | CurrentWeatherAction
     | FiveDaysForecastAction
     |HourlyForecastAction
-    | InitializationAction;
+    | InitializationAction
+    | DailyForecastAction;
 export type AppThunk <ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, AppActionsType>
 
 
 const rootReducer = combineReducers({
     currentWeather: currentWeatherReducer,
     hourlyWeather:hourlyForecastReducer,
-    initialization: initializationReducer
+    initialization: initializationReducer,
+    dailyWeather: dailyForecastReducer
 });
 
 export const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

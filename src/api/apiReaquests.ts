@@ -75,6 +75,15 @@ export type HoursResponseType = {
         forecastday: ForecastDayType
     }
 }
+export type DailyResponseType = {
+    location: LocationResponseType
+    current: CurrentWeatherResponseType
+    forecast: {
+        forecastday: Array<ForecastDayType>
+    }
+}
+
+
 
 ////////AXIOS
 export const instance = axios.create({
@@ -94,14 +103,14 @@ export const currentWeatherAPI = {
             });
     },
     getDailyData(location: string) {
-        return instance.get('forecast.json',
+        return instance.get<DailyResponseType>('forecast.json',
             {
                 params: {
                     key: '734c7d69f1f44bdba87150403221407',
                     q: location,
-                    days: 7
+                    days: 3
                 }
-            })
+            });
     }
 };
 

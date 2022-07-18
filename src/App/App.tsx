@@ -3,12 +3,14 @@ import c from './App.module.css';
 import {useAppDispatch} from './app/hooks';
 import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
-import {getHourlyForecastTC} from "../bll/reducers/HourlyForecastReducer";
+import {getHourlyForecastTC} from '../bll/reducers/HourlyForecastReducer';
 
-import {HourContainer} from "../components/Forecast/HourContainer";
-import {NavBar} from "../components/NavBar/NavBar";
-import {Route, Routes} from "react-router-dom";
-import {DecorationLine} from "../components/NavBar/DecorationLine";
+import {HourContainer} from '../components/Forecast/HourContainer';
+import {NavBar} from '../components/NavBar/NavBar';
+import {Route, Routes} from 'react-router-dom';
+import {DecorationLine} from '../components/NavBar/DecorationLine';
+import {getDailyForecastTC} from '../bll/reducers/dailyForecastReducer';
+import {DailyForecastContainer} from '../components/DailyForecast/DailyForecastContainer';
 
 function App() {
     const dispatch = useAppDispatch();
@@ -20,6 +22,7 @@ function App() {
             const lon = longitude.toString();
             dispatch(getCurrentWeatherTC('minsk'));
             dispatch(getHourlyForecastTC(`${lat} ${lon}`));
+            dispatch(getDailyForecastTC('london'));
         });
     }, [dispatch]);
 
@@ -32,6 +35,7 @@ function App() {
                 <Route path={'/'} element={<CurrentWeather/>}/>
                 <Route path={'/hourly'} element={<HourContainer/>}/>
             </Routes>
+            <DailyForecastContainer/>
         </div>
     );
 }
