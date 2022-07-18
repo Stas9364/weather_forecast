@@ -15,7 +15,6 @@ export const WeatherComponent = (data: ResponseCurrentWeatherType) => {
             <div className={styles.pressure}>Pressure: {data.current.pressure_mb}</div>
             <div className={styles.humidity}>Humidity: {data.current.humidity} %</div>
             <div className={styles.time}>{data.current.last_updated}</div>
-
         </div>
     );
 };

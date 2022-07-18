@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import c from './App.module.css'
+import c from './App.module.css';
 import {useAppDispatch} from './app/hooks';
 import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
@@ -19,7 +19,7 @@ function App() {
             const lat = latitude.toString();
             const lon = longitude.toString();
             dispatch(getCurrentWeatherTC('minsk'));
-            dispatch(getHourlyForecastTC(`${lat} ${lon}`))
+            dispatch(getHourlyForecastTC(`${lat} ${lon}`));
         });
     }, [dispatch]);
 
@@ -29,7 +29,7 @@ function App() {
             <DecorationLine/>
             <NavBar/>
             <Routes>
-                <Route path={'/now'} element={<CurrentWeather/>}/>
+                <Route path={'/'} element={<CurrentWeather/>}/>
                 <Route path={'/hourly'} element={<HourContainer/>}/>
             </Routes>
         </div>
