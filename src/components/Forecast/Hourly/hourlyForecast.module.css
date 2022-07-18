@@ -1,0 +1,30 @@
+.container{
+    margin-top: 10px;
+    background-color: goldenrod;
+    cursor: pointer;
+}
+.container div{
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.time{
+    background-color: lightgoldenrodyellow;
+    border-bottom: 1px solid gainsboro;
+}
+.temperature{
+    border-bottom: 1px solid gainsboro;
+}
+.icon{
+    background-color: lightgoldenrodyellow;
+}
+.chanceOfSnow{
+    border-bottom: 1px solid gainsboro;
+}
+.cloud{
+    background-color: lightgoldenrodyellow;
+}
+.chanceOfRain{
+    border-top: 1px solid gainsboro;
+}
