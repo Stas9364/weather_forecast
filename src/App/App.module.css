@@ -1,7 +1,9 @@
 .App{
     height: 50%;
     /*background-color: mediumturquoise;*/
-
+    /*background-size: 100%;*/
+    /*background-image:url("../assets/abstraktnye_cvetnye_oblaka-2560x1440.jpg");*/
+    /*background-repeat: no-repeat;*/
 padding-bottom: 10px;
 
 }
