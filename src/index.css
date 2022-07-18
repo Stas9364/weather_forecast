@@ -3,7 +3,7 @@ body {
   margin: 0;
 height: 100%;
   width: 100%;
-  /*background-color: dodgerblue;*/
+  background-size: 100%;
   background-image:url("assets/znak_tornado-1920x1200.jpg");
   background-repeat: no-repeat;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

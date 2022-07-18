@@ -5,6 +5,7 @@ import c from './navBar.module.css';
 export const NavBar = () => {
     return (
         <div className={c.NavBar}>
+
             <div className={c.link}>
                 <NavLink to={'/'}>Now</NavLink>
                 <NavLink to={'/hourly'}>Hourly</NavLink>
