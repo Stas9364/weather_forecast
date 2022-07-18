@@ -11,11 +11,13 @@ import {Mousewheel, Navigation, Pagination} from "swiper";
 import {useAppSelector} from "../../App/app/hooks";
 import {HourlyForecast} from "./Hourly/HourlyForecast";
 import React from "react";
+import {SearchForecastContainer} from "../SearchForecast/SearchForecastContainer";
 
 export const HourContainer = () => {
     const hourWeather = useAppSelector(data => data.hourlyWeather)
     return (
         <div className={c.container}>
+
             <Swiper
                 direction={"horizontal"}
                 slidesPerView={5}

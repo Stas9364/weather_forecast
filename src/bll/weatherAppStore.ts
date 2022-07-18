@@ -3,19 +3,20 @@ import thunk, {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {currentWeatherReducer} from './reducers/currentWeatherReducer';
 import {CurrentWeatherAction} from './actions/currentWeatherAction';
-import {FiveDaysForecastAction} from './actions/fiveDaysForecastAction';
+import {SearchForecastAction} from './actions/searchForecastAction';
 import {HourlyForecastAction} from './actions/HourlyForecastAction';
 import {hourlyForecastReducer} from './reducers/HourlyForecastReducer';
 import {InitializationAction} from './actions/initializationAction';
 import {initializationReducer} from './reducers/initializationReducer';
 import {dailyForecastReducer} from './reducers/dailyForecastReducer';
 import {DailyForecastAction} from './actions/dailyForecastAction';
+import {searchForecastReducer} from "./reducers/searchForecastReducer";
 
 export type AppStateType = ReturnType<typeof rootReducer>
 export type AppDispatch = ThunkDispatch<AppStateType, unknown, AppActionsType>;
 export type AppActionsType =
     | CurrentWeatherAction
-    | FiveDaysForecastAction
+    | SearchForecastAction
     |HourlyForecastAction
     | InitializationAction
     | DailyForecastAction;
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     currentWeather: currentWeatherReducer,
     hourlyWeather:hourlyForecastReducer,
     initialization: initializationReducer,
-    dailyWeather: dailyForecastReducer
+    dailyWeather: dailyForecastReducer,
+    search:searchForecastReducer,
 });
 
 export const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
