@@ -2,6 +2,7 @@
     margin-top: 10px;
     background-color: goldenrod;
     cursor: pointer;
+    background-color: rgba(248, 193, 66, 0.7);
 }
 .container div{
     text-align: center;
@@ -10,7 +11,8 @@
     padding-top: 5px;
 }
 .time{
-    background-color: lightgoldenrodyellow;
+
+    background-color: rgba(241, 226, 157, 0.7);
     border-bottom: 1px solid gainsboro;
 }
 .temperature {

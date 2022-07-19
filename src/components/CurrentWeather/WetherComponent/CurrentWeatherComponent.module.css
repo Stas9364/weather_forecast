@@ -1,0 +1,44 @@
+.container {
+    /*background-size: 100%;*/
+    /*background-image:url("../../../assets/zemlya_iz_kosmosa-1920x1152.jpg");*/
+    /*background-repeat: no-repeat;*/
+   width: 500px;
+    /*background-color: #e6bc53;*/
+    padding-left: 5%;
+    padding-top: 3%;
+
+}
+.container div{
+
+
+}
+.name {
+    color:black;
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+}
+.secondBlock{
+    display: flex;
+justify-content: space-around;
+}
+.temp {
+    font-size: 58px;
+    font-weight: bolder;
+}
+
+.description{
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.feelsLike, .windSpeed, .windDir,.pressure,.humidity,.time{
+    background-color: rgba(241, 226, 157, 0.3);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+

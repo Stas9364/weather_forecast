@@ -3,4 +3,5 @@
     height: 50px;
     background-color: #dba520;
     box-shadow: 0 -7px 13px -2px rgba(80, 62, 34, 0.42) inset;
+    text-align: end;
 }

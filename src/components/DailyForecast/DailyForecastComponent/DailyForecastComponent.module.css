@@ -1,13 +1,14 @@
+
 .container {
     color: #ffffff;
     display: flex;
     flex-direction: row;
     background-color: rgba(248, 193, 66, 0.5);
+    height: 55%;
 }
 
 .container div {
     text-align: center;
-    /*font-size: 20px;*/
     padding-bottom: 5px;
     padding-top: 5px;
 }

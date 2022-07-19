@@ -6,7 +6,7 @@ export enum SEARCH_FORECAST {
 
 export type SearchForecastAction = ReturnType<typeof getSearchForecast>;
 
-export const getSearchForecast = (weatherData:Array<SearchCompleteType>) => ({
+export const getSearchForecast = (weatherData: Array<SearchCompleteType>) => ({
     type: SEARCH_FORECAST.GET_FORECAST,
     weatherData
 } as const);

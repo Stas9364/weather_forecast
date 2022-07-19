@@ -8,6 +8,7 @@ import {Route, Routes} from 'react-router-dom';
 import {DecorationLine} from '../components/NavBar/DecorationLine';
 import {DailyForecastContainer} from '../components/DailyForecast/DailyForecastContainer';
 import {HourlyForecastContainer} from '../components/Forecast/HourlyForecastContainer';
+import {SearchForecastContainer} from "../components/SearchForecast/SearchForecastContainer";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -25,7 +26,11 @@ function App() {
     return (
         <div className={c.App}>
             <DecorationLine/>
-            <NavBar/>
+            <div className={c.search}>
+                <NavBar/>
+                <SearchForecastContainer/>
+            </div>
+
             <Routes>
                 <Route path={'/'} element={<CurrentWeather/>}/>
                 <Route path={'/hourly'} element={<HourlyForecastContainer/>}/>
