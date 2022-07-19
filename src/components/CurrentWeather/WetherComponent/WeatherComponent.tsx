@@ -9,12 +9,11 @@ export const WeatherComponent = (data: ResponseCurrentWeatherType) => {
             <div className={c.secondBlock}>
                 <div className={c.picture}>
                     <img src={data.current.condition.icon} alt="showing pic"/>
-                    <div className={c.description}>{data.current.condition.text}</div>
                 </div>
                 <div className={c.temp}>{data.current.temp_c} &deg;C</div>
             </div>
 
-
+            <div className={c.description}>{data.current.condition.text}</div>
             <div className={c.feelsLike}>Feels like: {data.current.feelslike_c} &deg;C</div>
             <div className={c.windSpeed}>Wind speed: {data.current.wind_kph} km/h</div>
             <div className={c.windDir}>Wind direction: {data.current.wind_dir}</div>
