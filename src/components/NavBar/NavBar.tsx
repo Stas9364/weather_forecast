@@ -1,9 +1,8 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import c from './navBar.module.css';
-import {SearchForecastContainer} from "../SearchForecast/SearchForecastContainer";
 
-export const NavBar = () => {
+export const NavBar = React.memo(() => {
     return (
         <div className={c.NavBar}>
 
@@ -15,8 +14,7 @@ export const NavBar = () => {
             {/*<div className={c.search}>*/}
             {/*    <SearchForecastContainer/>*/}
             {/*</div>*/}
-
         </div>
     );
-};
+});
 

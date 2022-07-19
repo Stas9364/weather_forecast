@@ -13,15 +13,14 @@ import {HourlyForecast} from './HourlyForecastComponent/HourlyForecast';
 import React, {useEffect} from 'react';
 import {getHourlyForecastTC} from '../../bll/reducers/hourlyForecastReducer';
 
-export const HourlyForecastContainer = () => {
+export const HourlyForecastContainer = React.memo(() => {
     const dispatch = useAppDispatch();
     const location = useAppSelector(state => state.initialization.selectedLocation);
+    const hourWeather = useAppSelector(data => data.hourlyWeather);
 
     useEffect(() => {
         dispatch(getHourlyForecastTC(location));
     }, [location]);
-
-    const hourWeather = useAppSelector(data => data.hourlyWeather);
 
     return (
         <div className={c.container}>
@@ -32,12 +31,17 @@ export const HourlyForecastContainer = () => {
                 spaceBetween={10}
                 mousewheel={true}
                 pagination={{type: 'custom'}}
-                modules={[Mousewheel, Pagination,Navigation,]}
+                modules={[Mousewheel, Pagination, Navigation,]}
                 className="mySwiper"
-            > {hourWeather && hourWeather.data.map((item, id) => <SwiperSlide key={id}>
-                <HourlyForecast item={item} /></SwiperSlide>)}
+            >
+                {
+                    hourWeather && hourWeather.data.map((item, id) =>
+                        <SwiperSlide key={id}>
+                            <HourlyForecast item={item}/>
+                        </SwiperSlide>)
+                }
             </Swiper>
         </div>
     );
-};
+});
 

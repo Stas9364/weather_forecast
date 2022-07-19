@@ -6,7 +6,7 @@ type ItemType = {
     item: HoursDataType
 }
 
-export const HourlyForecast: React.FC<ItemType> = ({item}) => {
+export const HourlyForecast: React.FC<ItemType> = React.memo(({item}) => {
     return (
         <div className={c.container}>
 
@@ -28,4 +28,4 @@ export const HourlyForecast: React.FC<ItemType> = ({item}) => {
         </div>
     );
 
-};
+});

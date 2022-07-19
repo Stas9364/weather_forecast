@@ -2,7 +2,7 @@ import React from 'react';
 import {ResponseCurrentWeatherType} from '../../../api/apiReaquests';
 import c from './CurrentWeatherComponent.module.css';
 
-export const WeatherComponent = (data: ResponseCurrentWeatherType) => {
+export const WeatherComponent = React.memo ((data: ResponseCurrentWeatherType) => {
     return (
         <div className={c.container}>
             <div className={c.name}>{data.location.name}</div>
@@ -22,4 +22,4 @@ export const WeatherComponent = (data: ResponseCurrentWeatherType) => {
             <div className={c.time}>{data.current.last_updated}</div>
         </div>
     );
-};
+} );

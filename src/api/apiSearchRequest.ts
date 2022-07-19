@@ -1,17 +1,17 @@
-import {instance} from "./apiReaquests";
+import {instance} from './apiReaquests';
 
 export type SearchCompleteType =
     {
-        "id": number
-        "name": string
-        "region": string
-        "country": string
-        "lat": number
-        "lon": number
-        "url": string
+        'id': number
+        'name': string
+        'region': string
+        'country': string
+        'lat': number
+        'lon': number
+        'url': string
     }
 export const searchAPI = {
-    getSearchtData(location: string) {
+    getSearchData(location: string) {
         return instance.get<Array<SearchCompleteType>>('search.json',
             {
                 params: {

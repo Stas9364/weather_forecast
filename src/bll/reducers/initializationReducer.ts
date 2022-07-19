@@ -10,7 +10,7 @@ export type IsLoadingType = 'idle' | 'loading' | 'success';
 export const initState: InitStateType = {
     isLoading: 'idle',
     error: null,
-    selectedLocation: null
+    selectedLocation: null,
 };
 
 export const initializationReducer = (state: InitStateType = initState, action: InitializationAction): InitStateType => {

@@ -19,9 +19,8 @@ export type AppActionsType =
     | SearchForecastAction
     | HourlyForecastAction
     | InitializationAction
-    | DailyForecastAction;
+    | DailyForecastAction
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppStateType, unknown, AppActionsType>
-
 
 const rootReducer = combineReducers({
     currentWeather: currentWeatherReducer,
@@ -32,3 +31,4 @@ const rootReducer = combineReducers({
 });
 
 export const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+

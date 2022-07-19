@@ -129,3 +129,16 @@ export const forecastAPI = {
 };
 
 
+export const instanceWEB = axios.create({
+    method: 'GET',
+    baseURL: 'https://api.windy.com/api/webcams/v2/',
+    headers: {
+        'x-windy-key': 'MUaRa4bdLNtKuMv0aiuINYpf1akd5geG'
+    }
+});
+
+export const webCamAPI = {
+    getVideo() {
+        return instanceWEB.get('list/nearby=46.54,7.98,5?show=webcams:url');
+    }
+};

@@ -14,7 +14,6 @@ export const AutoComplete: React.FC<AutoCompleteType> = ({suggestions, getSelect
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         const userInput = e.currentTarget.value;
-
         // Filter our suggestions that don't contain the user's input
         const unLinked = suggestions.filter(
             (suggestion) => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);

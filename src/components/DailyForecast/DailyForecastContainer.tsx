@@ -4,7 +4,7 @@ import {DailyForecastComponent} from './DailyForecastComponent/DailyForecastComp
 import c from '../DailyForecast/DailyForecastContainer.module.css';
 import {getDailyForecastTC} from '../../bll/reducers/dailyForecastReducer';
 
-export const DailyForecastContainer = () => {
+export const DailyForecastContainer = React.memo(() => {
     const dispatch = useAppDispatch();
 
     const data = useAppSelector(state => state.dailyWeather.forecast);
@@ -38,5 +38,5 @@ export const DailyForecastContainer = () => {
             })}
         </div>
     );
-};
+});
 

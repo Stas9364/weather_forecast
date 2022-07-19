@@ -16,20 +16,20 @@ type DailyForecastComponentType = {
     minTempC: number
 }
 
-export const DailyForecastComponent: React.FC<DailyForecastComponentType> = ({
-                                                                                 text,
-                                                                                 date,
-                                                                                 minTempC,
-                                                                                 avgTempC,
-                                                                                 dailyChanceOfRain,
-                                                                                 dailyChanceOfSnow,
-                                                                                 dailyWillItRain,
-                                                                                 dailyWillItSnow,
-                                                                                 sunrise,
-                                                                                 sunset,
-                                                                                 maxTempC,
-                                                                                 icon
-                                                                             }) => {
+export const DailyForecastComponent: React.FC<DailyForecastComponentType> = React.memo(({
+                                                                                            text,
+                                                                                            date,
+                                                                                            minTempC,
+                                                                                            avgTempC,
+                                                                                            dailyChanceOfRain,
+                                                                                            dailyChanceOfSnow,
+                                                                                            dailyWillItRain,
+                                                                                            dailyWillItSnow,
+                                                                                            sunrise,
+                                                                                            sunset,
+                                                                                            maxTempC,
+                                                                                            icon
+}) => {
     return (
         <div>
             <div className={c.date}>{date}</div>
@@ -80,6 +80,6 @@ export const DailyForecastComponent: React.FC<DailyForecastComponentType> = ({
         </div>
 
     );
-};
+});
 
 

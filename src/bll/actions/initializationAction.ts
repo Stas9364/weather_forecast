@@ -3,7 +3,7 @@ import {IsLoadingType} from '../reducers/initializationReducer';
 export enum INITIALIZATION_TYPE {
     IS_LOADING = 'IS_LOADING',
     ERROR = 'ERROR',
-    SELECTED_LOCATION = 'SELECTED_LOCATION'
+    SELECTED_LOCATION = 'SELECTED_LOCATION',
 }
 
 export type InitializationAction =
