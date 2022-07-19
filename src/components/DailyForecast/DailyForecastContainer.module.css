@@ -1,9 +1,9 @@
 .container {
     background-size: 100%;
-    background-image:url("../../assets/kamni_more_bereg_zakat_vecher_oblaka-2880x1920.jpg");
+    background-image: url("../../assets/bereg_morya_vecherom_na_zakate-2880x1901.jpg");
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     justify-content: space-around;
-
+    padding-top: 1%;
 }

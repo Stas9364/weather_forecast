@@ -5,23 +5,23 @@ import {searchAPI, SearchCompleteType} from "../../api/apiSearchRequest";
 
 export type InitStateType = typeof initState;
 
-export const initState = [] as Array<SearchCompleteType>
+export const initState = {data: [] as Array<SearchCompleteType>}
 
-export const searchForecastReducer = (state: InitStateType = initState, action:SearchForecastAction): InitStateType => {
+export const searchForecastReducer = (state: InitStateType = initState, action: SearchForecastAction): InitStateType => {
     switch (action.type) {
         case SEARCH_FORECAST.GET_FORECAST:
-            return [
-                ...state, ...action.weatherData
-            ];
+            return {
+                ...state, data: [...action.weatherData]
+            };
         default:
             return state;
     }
 };
 
 /////THUNK
-export const getSearchForecastTC =(value:string):AppThunk=>(dispatch)=>{
+export const getSearchForecastTC = (value: string): AppThunk => (dispatch) => {
     searchAPI.getSearchtData(value)
-        .then(res=>{
+        .then(res => {
 
             dispatch(getSearchForecast(res.data))
         })

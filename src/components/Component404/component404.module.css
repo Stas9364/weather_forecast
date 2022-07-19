@@ -1,0 +1,12 @@
+.notFound{
+    background-size: 100%;
+    background-image:url("../../assets/lyubopytnaya_ovca-1366x768.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.notFound h1{
+    font-size: 40px;
+    text-align: end;
+   padding-top: 30%;
+    padding-right: 10%;
+}

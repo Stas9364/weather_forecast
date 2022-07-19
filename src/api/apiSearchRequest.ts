@@ -1,6 +1,6 @@
 import {instance} from "./apiReaquests";
 
-export type SearchCompleteType=
+export type SearchCompleteType =
     {
         "id": number
         "name": string

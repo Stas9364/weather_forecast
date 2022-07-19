@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent} from 'react';
+import React, {useState, KeyboardEvent, ChangeEvent} from 'react';
 import styles from './AutoComplete.module.css';
 
 type AutoCompleteType = {
@@ -6,23 +6,24 @@ type AutoCompleteType = {
     getSelectedValue: (value: string) => void
 }
 
-export const AutoComplete: React.FC<AutoCompleteType> = ({ suggestions, getSelectedValue }) => {
+export const AutoComplete: React.FC<AutoCompleteType> = ({suggestions, getSelectedValue}) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [input, setInput] = useState('');
 
-    const onChange = (e: any) => {
-        const userInput = e.target.value;
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const userInput = e.currentTarget.value;
 
         // Filter our suggestions that don't contain the user's input
         const unLinked = suggestions.filter(
             (suggestion) => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);
-        setInput(e.target.value);
+        setInput(e.currentTarget.value);
         // @ts-ignore
         setFilteredSuggestions(unLinked);
         setActiveSuggestionIndex(0);
         setShowSuggestions(true);
+        getSelectedValue(e.currentTarget.value);
     };
 
     const onClick = (e: React.MouseEvent<HTMLLIElement>) => {
@@ -82,25 +83,26 @@ export const AutoComplete: React.FC<AutoCompleteType> = ({ suggestions, getSelec
                     })}
                 </ul>)
             : (
-                <div className= {styles.noSuggestions}>
-        <span role="img" aria-label="tear emoji">
-          😪
-        </span>{' '}
-                    <em>sorry no suggestions, but you can keep writing your request</em>
+                <div className={styles.noSuggestions}>
+        {/*<span role="img" aria-label="tear emoji">*/}
+        {/*  😪*/}
+        {/*</span>{' '}*/}
+        {/*            <em>sorry no suggestions, but you can keep writing your request</em>*/}
                 </div>
             );
     };
 
     return (
-        <>
-            <input
+        <div>
+            <input className={styles.input}
                 type="text"
                 onChange={onChange}
                 onKeyDown={onKeyDown}
                 value={input}
+                   placeholder={'Choose country'}
             />
-            {showSuggestions && input && <SuggestionsListComponent />}
-        </>
+            {showSuggestions && input && <SuggestionsListComponent/>}
+        </div>
     );
 };
 

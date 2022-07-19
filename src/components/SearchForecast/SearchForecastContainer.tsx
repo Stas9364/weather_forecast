@@ -1,28 +1,31 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useAppDispatch, useAppSelector} from '../../App/app/hooks';
-import {SearchAutocomplete} from './Search/SearchAutocomplete';
+
 import {getSearchForecastTC} from '../../bll/reducers/searchForecastReducer';
 import {AutoComplete} from '../AutoComplete/AutoComplete';
+import c from './searchForecastContainer.module.css'
+import {getCurrentWeatherTC} from "../../bll/reducers/currentWeatherReducer";
 
 export const SearchForecastContainer = () => {
-    useEffect(() => {
-        dispatch(getSearchForecastTC('lon'));
-    });
     const dispatch = useAppDispatch();
     const suggestions = useAppSelector(state => state.search)
     console.log(suggestions)
-    // if(suggestions.length){
-    //     const name = suggestions.filter(item=>item.name)
-    //     console.log(name)
-    // }
+    const name = suggestions.data.map(item => item.name)
+    if (suggestions.data.length) {
+        console.log(name)
+    }
 
     const searchHandler = (value: string) => {
+        console.log(value)
         dispatch(getSearchForecastTC(value));
-    };
+        dispatch(getCurrentWeatherTC(value));
+         // dispatch(getHourlyForecastTC(value));
+    }
 
     return (
-        <div>
-            {/*<AutoComplete suggestions={name} getSelectedValue={(value)=>searchHandler}/>*/}
+        <div className={c.autoComplete}>
+            {/*<button onClick={searchHandler}>Click</button>*/}
+            <AutoComplete suggestions={name} getSelectedValue={(value) => searchHandler(value)}/>
         </div>
     );
 };
