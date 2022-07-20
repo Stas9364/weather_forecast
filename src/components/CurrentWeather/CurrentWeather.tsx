@@ -14,8 +14,10 @@ export const CurrentWeather = React.memo(() => {
         if (initValue ) {
             dispatch(getCurrentWeatherTC(initValue));
         }
+        return ()=>{
+            console.log('cdox useeffect current')}
     }, [initValue]);
-
+    console.log('current')
     return (
         <div className={c.container}>
             {Object.keys(data).length !== 0

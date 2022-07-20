@@ -18,16 +18,10 @@ export const searchForecastReducer = (state: InitStateType = initState, action: 
 };
 
 /////THUNK
-export const getSearchForecastTC = (value: string): AppThunk => (dispatch) => {
-    searchAPI.getSearchData(value)
-        .then(res => {
-            dispatch(getSearchForecast(res.data));
-        });
-};
-// export const getFiveDaysForecastTC = (): AppThunk => (dispatch) => {
-//     currentWeatherAPI.getFiveDaysForecast('Minsk')
-//         .then(resp => {
-//             dispatch(getFiveDaysForecast(resp.data.list));
+// export const getSearchForecastTC = (value: string): AppThunk => (dispatch) => {
+//     searchAPI.getSearchData(value)
+//         .then(res => {
+//             dispatch(getSearchForecast(res.data));
 //         });
 // };
 

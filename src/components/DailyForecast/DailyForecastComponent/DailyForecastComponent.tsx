@@ -42,7 +42,7 @@ export const DailyForecastComponent: React.FC<DailyForecastComponentType> = Reac
                         <div>
                             <img src={icon} alt="weather pic"/>
                         </div>
-                        <div>Average temperature: <span className={c.averTemp}>{avgTempC}&deg;C</span></div>
+                        <div>Average temperature: <h1 className={c.averTemp}>{avgTempC}&deg;C</h1></div>
                     </div>
 
                     <div className={c.description}>{text}</div>
@@ -57,8 +57,8 @@ export const DailyForecastComponent: React.FC<DailyForecastComponentType> = Reac
                 <div className={c.rightSide}>
 
                     <div className={c.maxMin}>
-                        <div>Min temperature: <span>{minTempC}&deg;C</span></div>
-                        <div>Max temperature: <span>{maxTempC}&deg;C</span></div>
+                        <div>Min temperature: <h1>{minTempC}&deg;C</h1></div>
+                        <div>Max temperature: <h1>{maxTempC}&deg;C</h1></div>
                     </div>
 
                     <div className={c.chanceContainer}>

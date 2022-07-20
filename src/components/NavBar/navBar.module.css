@@ -1,13 +1,7 @@
 .NavBar {
-    padding: 1%;
-
-    width: 50%;
+    margin:1%;
+    width: 30%;
 }
-
-.NavBar div {
-    width: 100%;
-}
-
 .NavBar div a {
     cursor: pointer;
     padding-left: 20px;

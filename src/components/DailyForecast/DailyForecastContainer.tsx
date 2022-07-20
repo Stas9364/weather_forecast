@@ -9,9 +9,11 @@ export const DailyForecastContainer = React.memo(() => {
 
     const data = useAppSelector(state => state.dailyWeather.forecast);
     const location = useAppSelector(state => state.initialization.selectedLocation);
-
+    console.log('daily')
     useEffect(() => {
         dispatch(getDailyForecastTC(location));
+        return ()=>{
+            console.log('cdox useeffect daily')}
     }, [location]);
 
 
