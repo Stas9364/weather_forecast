@@ -1,8 +1,6 @@
 import React from 'react';
 import {ResponseCurrentWeatherType} from '../../../api/apiReaquests';
 import c from './CurrentWeatherComponent.module.css';
-import {Preloader} from "../../Preloader/Preloader";
-import {useAppSelector} from "../../../App/app/hooks";
 
 export const WeatherComponent = React.memo ((data: ResponseCurrentWeatherType) => {
 

@@ -23,12 +23,10 @@ export const currentWeatherReducer = (state: InitStateType = initState, action: 
 
 export const getCurrentWeatherTC = (location: string): AppThunk => (dispatch) => {
     dispatch(errorAC(null));
-    dispatch(isLoadingAC('loading'));
-    dispatch(selectedLocationAC(location));
     forecastAPI.getCurrentData(location)
         .then(resp => {
             dispatch(getCurrentWeatherAC(resp.data));
-            dispatch(isLoadingAC('success'));
+            dispatch(selectedLocationAC(resp.data.location.name));
         })
         .catch(e => {
             dispatch(errorAC(e.response.data.error.message));

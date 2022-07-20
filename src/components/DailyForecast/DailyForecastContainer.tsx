@@ -3,25 +3,28 @@ import {useAppDispatch, useAppSelector} from '../../App/app/hooks';
 import {DailyForecastComponent} from './DailyForecastComponent/DailyForecastComponent';
 import c from '../DailyForecast/DailyForecastContainer.module.css';
 import {getDailyForecastTC} from '../../bll/reducers/dailyForecastReducer';
+import {Preloader} from '../Preloader/Preloader';
 
 export const DailyForecastContainer = React.memo(() => {
     const dispatch = useAppDispatch();
 
     const data = useAppSelector(state => state.dailyWeather.forecast);
     const location = useAppSelector(state => state.initialization.selectedLocation);
-    console.log('daily')
+    const isLoading = useAppSelector(state => state.initialization.isLoading);
+
     useEffect(() => {
         dispatch(getDailyForecastTC(location));
-        return ()=>{
-            console.log('cdox useeffect daily')}
     }, [location]);
-
 
     return (
         <div className={c.container}>
             {data && data.forecastday.map((el, ind) => {
+
                 return (
-                    <DailyForecastComponent
+                    // @ts-ignore
+                    isLoading === 'loading'
+                        ? <Preloader/>
+                        : <DailyForecastComponent
                         sunrise={el.astro.sunrise}
                         sunset={el.astro.sunset}
                         date={el.date}
