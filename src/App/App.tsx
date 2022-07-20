@@ -17,6 +17,7 @@ import {errorAC} from "../bll/actions/initializationAction";
 function App() {
     const dispatch = useAppDispatch();
     const initValue = useAppSelector(state => state.initialization.selectedLocation);
+
     const isLoading = useAppSelector(state => state.initialization.isLoading);
     const img = useAppSelector(state => state.initialization.error)
     useEffect(() => {
@@ -49,13 +50,14 @@ function App() {
     // if (isLoading === 'loading') {
     //     return <Preloader/>;
     // }
-
+    const data = useAppSelector(state => state.currentWeather);
     return (
         <div className={c.App}>
             <DecorationLine/>
             <div className={c.search}>
                 <NavBar/>
-                <SearchForecastContainer/>
+                {Object.keys(data).length !== 0 ? <div className={c.city}>{data.location.name}</div> : <div></div>}
+                <div className={c.forecast}><SearchForecastContainer/></div>
             </div>
             {/*{img && <embed src={img}/>}*/}
             <Routes>
@@ -65,7 +67,7 @@ function App() {
                 <Route path={'/404'} element={<Component404/>}/>
                 <Route path={'*'} element={<Navigate to={'/404'}/>}/>
             </Routes>
-
+            <DecorationLine/>
         </div>
     );
 }

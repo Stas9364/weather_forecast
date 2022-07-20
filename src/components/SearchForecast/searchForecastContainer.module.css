@@ -1,6 +1,4 @@
-.autoComplete{
-    /*width: 40%;*/
-    /*align-self: center;*/
-    /*text-align: center;*/
-
+.autoComplete input{
+    height: 25px;
+    background-color: #e6bc53;
 }

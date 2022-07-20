@@ -1,12 +1,12 @@
-
 .container {
     color: #ffffff;
     display: flex;
     flex-direction: row;
     background-color: rgba(248, 193, 66, 0.5);
-    height: 55%;
 }
-
+.container:nth-child(2){
+    color:black;
+}
 .container div {
     text-align: center;
     padding-bottom: 5px;
@@ -37,6 +37,6 @@
     width: 200px;
 }
 
-.maxMin span {
-    font-size: 28px;
-}
+/*.maxMin  {*/
+/*    font-size: 28px;*/
+/*}*/
