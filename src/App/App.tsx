@@ -57,7 +57,7 @@ export const App=React.memo(()=> {
 
         return ()=>{
             console.log('cdox useeffect app')}
-    }, [initValue]);
+    }, [initValue,data]);
     console.log('app')
     // useEffect(() => {
     //     webCamAPI.getVideo()
