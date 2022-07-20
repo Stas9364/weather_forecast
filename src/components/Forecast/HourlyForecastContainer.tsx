@@ -21,7 +21,7 @@ export const HourlyForecastContainer = React.memo(() => {
     useEffect(() => {
         dispatch(getHourlyForecastTC(location));
     }, [location]);
-
+    console.log('hour')
     return (
         <div className={c.container}>
 

@@ -5,7 +5,7 @@ import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
 import {NavBar} from '../components/NavBar/NavBar';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import {DecorationLine} from '../components/NavBar/DecorationLine';
+
 import {DailyForecastContainer} from '../components/DailyForecast/DailyForecastContainer';
 import {HourlyForecastContainer} from '../components/Forecast/HourlyForecastContainer';
 import {SearchForecastContainer} from '../components/SearchForecast/SearchForecastContainer';
@@ -14,14 +14,15 @@ import {Preloader} from '../components/Preloader/Preloader';
 import {webCamAPI} from "../api/apiReaquests";
 import {errorAC} from "../bll/actions/initializationAction";
 
-function App() {
+export const App=React.memo(()=> {
     const dispatch = useAppDispatch();
     const initValue = useAppSelector(state => state.initialization.selectedLocation);
-
+    const data = useAppSelector(state => state.currentWeather);
     const isLoading = useAppSelector(state => state.initialization.isLoading);
     const img = useAppSelector(state => state.initialization.error)
+
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
+        setTimeout(()=>{ navigator.geolocation.getCurrentPosition(
             function (position) {
                 const {latitude, longitude} = position.coords;
                 const lat = latitude.toString();
@@ -36,9 +37,27 @@ function App() {
                 if (error.code === 1) {
                     alert('Sorry, but I need to know your location!');
                 }
-            });
+            });},2000)
+        // navigator.geolocation.getCurrentPosition(
+        //     function (position) {
+        //         const {latitude, longitude} = position.coords;
+        //         const lat = latitude.toString();
+        //         const lon = longitude.toString();
+        //         if (initValue === null) {
+        //             dispatch(getCurrentWeatherTC(`${lat} ${lon}`));
+        //         }
+        //         // if (initValue ) {
+        //         //     dispatch(getCurrentWeatherTC(initValue));
+        //         // }
+        //     }, function (error) {
+        //         if (error.code === 1) {
+        //             alert('Sorry, but I need to know your location!');
+        //         }
+        //     });
+        return ()=>{
+            console.log('cdox useeffect app')}
     }, [initValue]);
-
+    console.log('app')
     // useEffect(() => {
     //     webCamAPI.getVideo()
     //         .then(resp => {
@@ -47,31 +66,28 @@ function App() {
     //         });
     // }, []);
 
-    // if (isLoading === 'loading') {
-    //     return <Preloader/>;
-    // }
-    const data = useAppSelector(state => state.currentWeather);
+    if(initValue === null)return <Preloader/>
     return (
         <div className={c.App}>
-            <DecorationLine/>
+            <div className={c.line}></div>
             <div className={c.search}>
-                <NavBar/>
+               <NavBar/>
                 {Object.keys(data).length !== 0 ? <div className={c.city}>{data.location.name}</div> : <div></div>}
                 <div className={c.forecast}><SearchForecastContainer/></div>
             </div>
             {/*{img && <embed src={img}/>}*/}
             <Routes>
-                <Route path={'/'} element={<CurrentWeather/>}/>
+                <Route path={'/'} element={ <CurrentWeather/>}/>
                 <Route path={'/hourly'} element={<HourlyForecastContainer/>}/>
                 <Route path={'/threeDays'} element={<DailyForecastContainer/>}/>
                 <Route path={'/404'} element={<Component404/>}/>
                 <Route path={'*'} element={<Navigate to={'/404'}/>}/>
             </Routes>
-            <DecorationLine/>
+            <div className={c.line}></div>
         </div>
     );
-}
+})
 
-export default App;
+
 
 
