@@ -11,8 +11,10 @@ export const currentWeatherReducer = (state: InitStateType = initState, action: 
     switch (action.type) {
         case CURRENT_WEATHER_TYPE.GET_CURRENT_WEATHER:
             return {
+                // ...state,location:{...action.currentWeatherData.location},current:{...action.currentWeatherData.current}
+                // ...state,location:state.location.lat === action.currentWeatherData.location.lat?state.location:action.currentWeatherData.location,current:action.currentWeatherData.current
                 ...state,
-               ...action.currentWeatherData
+                ...action.currentWeatherData
             };
         default:
             return state;
