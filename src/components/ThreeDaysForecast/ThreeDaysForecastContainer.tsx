@@ -22,7 +22,7 @@ export const ThreeDaysForecastContainer = React.memo(() => {
 
                 return (
                     isLoading === 'loading'
-                        ? <Preloader/>
+                        ? <Preloader key={ind}/>
                         : <ThreeDaysForecastComponent
                         sunrise={el.astro.sunrise}
                         sunset={el.astro.sunset}
