@@ -21,7 +21,6 @@ export const ThreeDaysForecastContainer = React.memo(() => {
             {data && data.forecastday.map((el, ind) => {
 
                 return (
-                    // @ts-ignore
                     isLoading === 'loading'
                         ? <Preloader/>
                         : <ThreeDaysForecastComponent

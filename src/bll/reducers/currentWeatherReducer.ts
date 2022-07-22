@@ -1,7 +1,7 @@
 import {CURRENT_WEATHER_TYPE, CurrentWeatherAction, getCurrentWeatherAC} from '../actions/currentWeatherAction';
 import {forecastAPI, ResponseCurrentWeatherType} from '../../api/apiReaquests';
 import {AppThunk} from '../weatherAppStore';
-import {errorAC, isLoadingAC, selectedLocationAC} from '../actions/initializationAction';
+import {errorAC, selectedLocationAC} from '../actions/initializationAction';
 
 export type InitStateType = typeof initState;
 
