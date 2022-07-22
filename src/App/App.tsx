@@ -1,15 +1,11 @@
 import React, {useEffect} from 'react';
 import c from './App.module.css';
 import {useAppDispatch, useAppSelector} from './app/hooks';
-import {CurrentWeather} from '../components/CurrentWeather/CurrentWeather';
 import {getCurrentWeatherTC} from '../bll/reducers/currentWeatherReducer';
 import {NavBar} from '../components/NavBar/NavBar';
-import {Navigate, Route, Routes} from 'react-router-dom';
-import {DailyForecastContainer} from '../components/DailyForecast/DailyForecastContainer';
-import {HourlyForecastContainer} from '../components/Forecast/HourlyForecastContainer';
 import {SearchForecastContainer} from '../components/SearchForecast/SearchForecastContainer';
-import {Component404} from '../components/Component404/Component404';
 import {Preloader} from '../components/Preloader/Preloader';
+import {RoutesContainer} from '../components/RoutesContainer/RoutesContainer';
 
 export const App = () => {
     const dispatch = useAppDispatch();
@@ -54,19 +50,11 @@ export const App = () => {
 
             </div>
 
-            <Routes>
-                <Route path={'/'} element={<CurrentWeather/>}/>
-                <Route path={'/hourly'} element={<HourlyForecastContainer/>}/>
-                <Route path={'/threeDays'} element={<DailyForecastContainer/>}/>
-                <Route path={'/404'} element={<Component404/>}/>
-                <Route path={'*'} element={<Navigate to={'/404'}/>}/>
-            </Routes>
+            <RoutesContainer/>
 
             <div className={c.line}></div>
 
         </div>
     );
 };
-
-
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import c from '../DailyForecastComponent/DailyForecastComponent.module.css';
+import c from './ThreeDaysForecastComponent.module.css';
 
 type DailyForecastComponentType = {
     sunrise: string
@@ -16,7 +16,7 @@ type DailyForecastComponentType = {
     minTempC: number
 }
 
-export const DailyForecastComponent: React.FC<DailyForecastComponentType> = React.memo(({
+export const ThreeDaysForecastComponent: React.FC<DailyForecastComponentType> = React.memo(({
                                                                                             text,
                                                                                             date,
                                                                                             minTempC,

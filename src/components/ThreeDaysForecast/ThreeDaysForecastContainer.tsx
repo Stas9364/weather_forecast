@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../App/app/hooks';
-import {DailyForecastComponent} from './DailyForecastComponent/DailyForecastComponent';
-import c from '../DailyForecast/DailyForecastContainer.module.css';
+import {ThreeDaysForecastComponent} from './ThreeDaysForecastComponent/ThreeDaysForecastComponent';
+import c from './ThreeDaysForecastContainer.module.css';
 import {getDailyForecastTC} from '../../bll/reducers/dailyForecastReducer';
 import {Preloader} from '../Preloader/Preloader';
 
-export const DailyForecastContainer = React.memo(() => {
+export const ThreeDaysForecastContainer = React.memo(() => {
     const dispatch = useAppDispatch();
 
     const data = useAppSelector(state => state.dailyWeather.forecast);
@@ -24,7 +24,7 @@ export const DailyForecastContainer = React.memo(() => {
                     // @ts-ignore
                     isLoading === 'loading'
                         ? <Preloader/>
-                        : <DailyForecastComponent
+                        : <ThreeDaysForecastComponent
                         sunrise={el.astro.sunrise}
                         sunset={el.astro.sunset}
                         date={el.date}
