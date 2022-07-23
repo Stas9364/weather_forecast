@@ -1,10 +1,20 @@
-import React from 'react';
-import {useAppSelector} from '../../App/app/hooks';
+import React, {useEffect} from 'react';
+import {useAppDispatch, useAppSelector} from '../../App/app/hooks';
 import {WeatherComponent} from './WetherComponent/WeatherComponent';
 import c from './CurrentWeather.module.css';
+import {getCurrentWeatherTC} from "../../bll/reducers/currentWeatherReducer";
 
 export const CurrentWeather = React.memo(() => {
-
+    const dispatch = useAppDispatch()
+    const initValue = useAppSelector(state => state.initialization.selectedLocation);
+    useEffect(()=>{
+        if (initValue) {
+            dispatch(getCurrentWeatherTC(initValue));
+        }
+        return(()=>{
+            console.log('current sdox')
+        })
+    },[initValue])
     const data = useAppSelector(state => state.currentWeather);
 
     return (
